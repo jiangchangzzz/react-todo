@@ -1,18 +1,11 @@
 import * as React from 'react';
 
-export interface IHeaderProps{
-    localImageSrc?: string;
-    onLineImageSrc?: string;
-}
-
-const Header: React.SFC<IHeaderProps>= (props: IHeaderProps) => {
-    const { localImageSrc, onLineImageSrc }=props;
+const Header: React.SFC = () => {
     return (
         <div>
-            <img src={localImageSrc}/>
-            <img src={onLineImageSrc}/>
+            <h1>welcome to react-todo</h1>
         </div>
-    )
+    );
 };
 
 export default Header;

@@ -1,42 +1,25 @@
 import * as React from 'react';
-import { Link, BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './App.css';
-import Hello from './components/Hello';
-import TestPage from './components/TestPage';
 import Header from './components/Header';
-import Home from './components/Home';
-import { routes, RouteWithSubRoutes } from './route';
-
-
-// import logo from './logo.svg';
+import Footer from './components/Footer';
+import List from './containers/List';
+import Item from './containers/Item';
 
 class App extends React.Component {
   public render() {
     return (
       <div className="App">
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p> */}
-        <Header/>
-        <Hello name="red"/>
-        <TestPage/>
-        <Home/>
+        <Header />
         <Router>
           <div>
-          <nav>
-            <Link to="/red">red</Link>
-            <Link to="/green">green</Link>
-          </nav>
-          {routes.map((route, index) => (
-            <RouteWithSubRoutes key={index} route={route}/>
-          ))}
+            <Route exact path="/" component={List} />
+            <Route path="/list" component={List} />
+            <Route path="/item" component={Item} />
           </div>
         </Router>
+        <Footer />
       </div>
     );
   }
