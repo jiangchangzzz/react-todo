@@ -3,7 +3,7 @@ import { Todo } from '../models/Todo';
 
 export interface IAddTodo{
     type: constants.ADD_TODO;
-    payload: Todo;
+    payload: string;
 }
 
 export interface IRemoveTodo{
@@ -22,10 +22,10 @@ export interface IClearTodo{
 
 export type TodoAction = IAddTodo | IRemoveTodo | ICompleteTodo | IClearTodo;
 
-export function addTodo(todo: Todo): IAddTodo{
+export function addTodo(title: string): IAddTodo{
     return {
         type: constants.ADD_TODO,
-        payload: todo
+        payload: title
     };
 }
 

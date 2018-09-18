@@ -1,0 +1,26 @@
+.new-todo{
+    margin-bottom: 10px;
+}
+
+.new-group{
+    display: flex;
+    justify-content: space-between;
+}
+
+.new-input{
+    width: 200px;
+    padding: 4px 6px;
+    border-radius: 4px;
+}
+
+.new-btn{
+    padding: 4px 6px;
+    border-radius: 4px;
+    background-color: #157ffb;
+    color: #fff;
+}
+
+.new-warn{
+    color: red;
+    margin-top: 4px;
+}

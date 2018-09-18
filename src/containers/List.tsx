@@ -10,22 +10,18 @@ import { Todo } from '../models/Todo';
 
 interface IListProps {
     todos: Todo[],
-    addTodo: (todo: Todo)=>void
+    addTodo: (title: string)=>void,
+    removeTodo: (todo: Todo)=>void,
+    completeTodo: (todo: Todo)=>void
 }
 
 export class List extends React.Component<IListProps> {
-    lastId: number = 0;
-
-    newTodo(title: string) {
-
-    }
-
     render() {    
-        const { todos, addTodo } = this.props;          
+        const { todos, addTodo, removeTodo, completeTodo } = this.props;          
         return (
             <div>
                 <NewTodo onNewTodo={addTodo}/>
-                <TodoList todos={todos} onRemove={}/>
+                <TodoList todos={todos} onRemove={removeTodo} onComplete={completeTodo}/>
             </div>
         );
   };
@@ -37,7 +33,7 @@ const mapStateToProps = (state: RootStore) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch<actions.TodoAction>) => {
     return {
-        addTodo: (todo: Todo) => dispatch(actions.addTodo(todo)),
+        addTodo: (title: string) => dispatch(actions.addTodo(title)),
         removeTodo: (todo: Todo) => dispatch(actions.removeTodo(todo)),
         completeTodo: (todo: Todo) => dispatch(actions.completeTodo(todo)),
         clearTodo: () => dispatch(actions.clearTodo())
